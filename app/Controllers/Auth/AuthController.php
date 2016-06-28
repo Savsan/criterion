@@ -61,7 +61,6 @@ class AuthController extends Controller{
 		]);
 
 		if($validation->failed()){
-
 			return $response->withRedirect($this->router->pathFor('auth.signup'));
 
 		}
@@ -72,8 +71,8 @@ class AuthController extends Controller{
 			'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT),
 			'role' => $request->getParam('role'),
 		]);
-		
-		return $response->withRedirect($this->router->pathFor('home'));
+		$this->container->flash->addMessage('usercreated', 'Пользователь успешно создан !');
+		return $response->withRedirect($this->router->pathFor('auth.signup'));
 		
 	}
 	
