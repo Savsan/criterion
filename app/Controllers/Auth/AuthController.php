@@ -50,7 +50,7 @@ class AuthController extends Controller{
 
 	public function postSignUp($request, $response)
 	{
-		
+
 		$validation = $this->validator->validate($request, [
 
 			'name' => v::notEmpty()->alpha(),
