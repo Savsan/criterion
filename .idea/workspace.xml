@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6fea5040-dfef-466b-bef6-fc10edfa78fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Controllers/Auth/AuthController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templates/partials/flash.twig" afterPath="$PROJECT_DIR$/resources/views/templates/partials/flash.twig" />
-    </list>
+    <list default="true" id="6fea5040-dfef-466b-bef6-fc10edfa78fc" name="Default" comment="" />
     <ignored path="slim.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -535,12 +531,12 @@
       <workItem from="1466900038032" duration="8031000" />
       <workItem from="1466936632603" duration="2442000" />
       <workItem from="1467013268258" duration="7651000" />
-      <workItem from="1467108068344" duration="7785000" />
+      <workItem from="1467108068344" duration="8445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187916000" />
+    <option name="totallyTimeSpent" value="188576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
