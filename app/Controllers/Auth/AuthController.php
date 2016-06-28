@@ -56,6 +56,7 @@ class AuthController extends Controller{
 			'name' => v::notEmpty()->alpha(),
 			'email' => v::noWhitespace()->notEmpty()->EmailAvailible(),
 			'password' => v::noWhitespace()->notEmpty(),
+			'role' => v::noWhitespace()->notEmpty(),
 
 		]);
 
@@ -69,6 +70,7 @@ class AuthController extends Controller{
 			'name' => $request->getParam('name'),
 			'email' => $request->getParam('email'),
 			'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT),
+			'role' => $request->getParam('role'),
 		]);
 		
 		return $response->withRedirect($this->router->pathFor('home'));
