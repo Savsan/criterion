@@ -53,6 +53,9 @@ $container['view'] = function ($container) {
 
         'check' => $container->auth->check(),
         'user' => $container->auth->user(),
+        'simpleuser' => $container->auth->checkIsSimpleUser(),
+        'admin' => $container->auth->checkIsAdmin(),
+        'hrmanager' => $container->auth->checkIsHrManager(),
 
     ]);
     // Add a flash messages

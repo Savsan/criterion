@@ -10,7 +10,7 @@
 
         <br>
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-
+            {% if auth.admin %}
             <div class="menu_section">
                 <h3>Система</h3>
                 <ul class="nav side-menu">
@@ -23,6 +23,7 @@
                     </li>
                 </ul>
             </div>
+            {% endif %}
 
             <div class="menu_section">
                 <h3>HR-менеджмент</h3>
