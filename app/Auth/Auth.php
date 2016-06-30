@@ -10,7 +10,7 @@ class Auth
     {
         return User::find($_SESSION['user']);
     }
-    
+
     public function check()
     {
         return isset($_SESSION['user']);
@@ -18,17 +18,23 @@ class Auth
 
     public function checkIsAdmin()
     {
-        return isset($_SESSION['admin']);
+        if($_SESSION['role'] === 'admin'){
+            return $_SESSION['role'];
+        }
     }
 
     public function checkIsHrManager()
     {
-        return isset($_SESSION['hrmanager']);
+        if($_SESSION['role'] === 'hrmanager'){
+            return $_SESSION['role'];
+        }
     }
 
     public function checkIsSimpleUser()
     {
-        return isset($_SESSION['simpleuser']);
+        if($_SESSION['role'] === 'simpleuser'){
+            return $_SESSION['role'];
+        }
     }
 
     public function attempt($email, $password)
@@ -38,21 +44,22 @@ class Auth
         if(!$user){
             return false;
         }
-
+        // Create user's session
         if(password_verify($password, $user->password)) {
             $_SESSION['user'] = $user->id;
-            $role = $user->role;
+            $_SESSION['role'] = $user->role;
+           /* $role = $user->role;
             switch ($role) {
                 case "admin":
-                    $_SESSION['admin'] = $user->role;
+                    $_SESSION['role'] = $user->role;
                     break;
                 case "hrmanager":
-                    $_SESSION['hrmanager'] = $user->role;
+                    $_SESSION['role'] = $user->role;
                     break;
-                case "user":
-                    $_SESSION['simpleuser'] = $user->role;
+                case "simpleuser":
+                    $_SESSION['role'] = $user->role;
                     break;
-            }
+            }*/
             return true;
         }
     }
@@ -60,12 +67,7 @@ class Auth
     public function logOut()
     {
         unset($_SESSION['user']);
-        if(isset($_SESSION['admin'])){
-            unset($_SESSION['admin']);
-        }elseif(isset($_SESSION['hrmanager'])){
-            unset($_SESSION['hrmanager']);
-        }else{
-            unset($_SESSION['simpleuser']);
-        }
+        unset($_SESSION['role']);
+
     }
 }

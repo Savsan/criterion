@@ -2,7 +2,7 @@
     <div class="left_col scroll-view" style="overflow: visible;">
 
         <div class="navbar nav_title" style="border: 0;">
-            <a href="{{ path_for('dashboard.dashboard') }}" class="site_title">
+            <a class="site_title">
                 <i class="fa fa-pie-chart"></i>
                 <span>Criterion HRM</span>
             </a>
@@ -24,13 +24,15 @@
                 </ul>
             </div>
             {% endif %}
-
+            {% if auth.admin or auth.hrmanager or auth.simpleuser %}
             <div class="menu_section">
                 <h3>HR-менеджмент</h3>
                 <ul class="nav side-menu">
+                    {% if auth.admin or auth.hrmanager %}
                     <li>
                         <a href="{{ path_for('dashboard.dashboard') }}"><i class="fa fa-tachometer"></i> Главная панель</a>
                     </li>
+                    {% endif %}
                     <li>
                         <a href="{{ path_for('orders.orders') }}"><i class="fa fa-list-alt"></i> Заявки </a>
                     </li>
@@ -39,6 +41,8 @@
                     </li>
                 </ul>
             </div>
+            {% endif %}
+            {% if auth.admin or auth.hrmanager %}
             <div class="menu_section">
                 <h3>Компания</h3>
                 <ul class="nav side-menu">
@@ -50,7 +54,7 @@
                     </li>
                 </ul>
             </div>
-
+            {% endif %}
         </div>
 
         <div class="sidebar-footer hidden-small">

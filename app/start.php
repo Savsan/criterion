@@ -1,5 +1,4 @@
 <?
-
 use Respect\Validation\Validator as v;
 
 session_cache_limiter(false);
@@ -80,6 +79,7 @@ $container['validator'] = function ($container) {
 $container['AuthController'] = function ($container) {
     return new \App\Controllers\Auth\AuthController($container);
 	};
+
 $container['UsersController'] = function ($container) {
     return new App\Controllers\Users\UsersController($container);
 };

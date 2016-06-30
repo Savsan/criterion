@@ -37,7 +37,12 @@ class AuthController extends Controller{
 		$auth = $this->auth->attempt($request->getParam('email'), $request->getParam('password'));
 
 		if(!$auth){
+			$this->container->flash->addMessage('loginerror', 'Неправильно указан логин или пароль');
 			return $response->withRedirect($this->router->pathFor('auth.signin'));
+		}
+
+		if($this->container->auth->checkIsSimpleUser()){
+			return $response->withRedirect($this->router->pathFor('orders.orders'));
 		}
 
 		return $response->withRedirect($this->router->pathFor('dashboard.dashboard'));

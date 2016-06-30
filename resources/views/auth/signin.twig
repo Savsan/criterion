@@ -5,6 +5,7 @@
 	<div class="login_wrapper">
 		<div class="animate form login_form">
 			<section class="login_content">
+				{% include 'templates/partials/flash.twig' %}
 				<form action="{{ path_for('auth.signin') }}" method="post" autocomplete="off">
 					<h1>Вход в систему</h1>
 					<div class="form-group{{ errors.email ? ' has-error' : '' }}">

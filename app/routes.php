@@ -2,51 +2,58 @@
 //$app->get('/', 'HomeController:index')->setName('home');
 
 use App\Middleware\AuthMiddleware;
+use App\Middleware\AuthAdminMiddleware;
+use App\Middleware\AuthHrManagerMiddleware;
 
-$app->get('/auth/signup', 'AuthController:getSignUp')->setName('auth.signup');
-$app->post('/auth/signup', 'AuthController:postSignUp');
-
+// Public routs
 $app->get('/', 'AuthController:getSignIn')->setName('auth.signin');
 $app->post('/', 'AuthController:postSignIn');
 
 /**
- * APP access control group
+ * APP access control groups
  */
+
+// Access only for Admin
 $app->group('', function(){
 
-    //$this->get('/auth/signout', 'AuthController:getSignOut')->setName('auth.signout');
-
+    //USERS REGISTRATION
+    $this->get('/auth/signup', 'AuthController:getSignUp')->setName('auth.signup');
+    $this->post('/auth/signup', 'AuthController:postSignUp');
     // USERS routers
-    //$this->get('/users', 'UsersController:getUsers')->setName('users.users');
-
+    $this->get('/users', 'UsersController:getUsers')->setName('users.users');
     // SETTINGS routers
-    //$this->get('/settings', 'SettingsController:getSettings')->setName('settings.mainsettings');
+    $this->get('/settings', 'SettingsController:getSettings')->setName('settings.mainsettings');
 
-    // DASHBOARD routers
-    //$this->get('/dashboard', 'DashboardController:getDashboard')->setName('dashboard.dashboard');
+})->add(new AuthAdminMiddleware($container));
+
+// Access for users
+$app->group('', function(){
 
     // ORDERS routers
-    //$this->get('/orders', 'OrdersController:getOrders')->setName('orders.orders');
-
+    $this->get('/orders', 'OrdersController:getOrders')->setName('orders.orders');
     // CANDIDATES routers
-    //$this->get('/candidates', 'CandidatesController:getCandidates')->setName('candidates.candidates');
-
-    // DEPARTMENTS routers
-    //$this->get('/departments', 'DepartmentsController:getDepartments')->setName('departments.departments');
-
-    // EMPLOYEES routers
-    //$this->get('/employees', 'EmployeesController:getEmployees')->setName('employees.employees');
-
-    // CALCULATOR routers
-    //$this->get('/calculate', 'CalculateController:getCalculate')->setName('calculate.averagefuelcalc');
-    //$this->post('/calculate', 'CalculateController:postCalculate');
+    $this->get('/candidates', 'CandidatesController:getCandidates')->setName('candidates.candidates');
+    // LOGOUT
+    $this->get('/auth/signout', 'AuthController:getSignOut')->setName('auth.signout');
 
 })->add(new AuthMiddleware($container));
+
+// Access for the HR manager and Admin
+$app->group('', function(){
+
+    // DASHBOARD routers
+    $this->get('/dashboard', 'DashboardController:getDashboard')->setName('dashboard.dashboard');
+    // DEPARTMENTS routers
+    $this->get('/departments', 'DepartmentsController:getDepartments')->setName('departments.departments');
+    // EMPLOYEES routers
+    $this->get('/employees', 'EmployeesController:getEmployees')->setName('employees.employees');
+
+})->add(new AuthHrManagerMiddleware($container));
 
 /**
  * Temporary FREE access
  */
-$app->get('/auth/signout', 'AuthController:getSignOut')->setName('auth.signout');
+/*$app->get('/auth/signout', 'AuthController:getSignOut')->setName('auth.signout');
 
 // USERS routers
 $app->get('/users', 'UsersController:getUsers')->setName('users.users');
@@ -67,6 +74,6 @@ $app->get('/candidates', 'CandidatesController:getCandidates')->setName('candida
 $app->get('/departments', 'DepartmentsController:getDepartments')->setName('departments.departments');
 
 // EMPLOYEES routers
-$app->get('/employees', 'EmployeesController:getEmployees')->setName('employees.employees');
+$app->get('/employees', 'EmployeesController:getEmployees')->setName('employees.employees');*/
 
 ?>

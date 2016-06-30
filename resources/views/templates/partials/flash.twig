@@ -1,19 +1,61 @@
 {% if flash.getMessage('usercreated') %}
-<div class="row">
-    <div class="alert alert-success alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    {{ flash.getMessage('usercreated') | first }}
+<div class="x_content">
+    <div class="row">
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        {{ flash.getMessage('usercreated') | first }}
+        </div>
     </div>
 </div>
 {% endif %}
 
-{% if flash.getMessage('help') %}
-    <div class="alert alert-info" role="alert">
-
-        {{ flash.getMessage('help') | first }}
-
+{% if flash.getMessage('accesserror') %}
+    <div class="row">
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            {{ flash.getMessage('accesserror') | first }}
+        </div>
     </div>
+{% endif %}
+
+{% if flash.getMessage('loginerror') %}
+    <div class="row">
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            {{ flash.getMessage('loginerror') | first }}
+        </div>
+    </div>
+{% endif %}
+
+{% if flash.getMessage('notadminerror') %}
+<div class="x_content">
+    <div class="row">
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            {{ flash.getMessage('notadminerror') | first }}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if flash.getMessage('nothrmanagererror') %}
+<div class="x_content">
+    <div class="row">
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            {{ flash.getMessage('nothrmanagererror') | first }}
+        </div>
+    </div>
+</div>
 {% endif %}
 
