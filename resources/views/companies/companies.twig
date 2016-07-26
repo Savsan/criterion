@@ -1,0 +1,97 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <button type="button"class="btn btn-default btn-app" data-toggle="modal" data-target=".bs-example-modal-lg"><span class=" fa fa-plus"></span> Добавить</button>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Поиск..." type="text">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><span class=" fa fa-search"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Регистрация новой компании</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="companyname" action="/companies" method="post">
+                                <div class="form-group{{ errors.company_name ? ' has-error' : '' }}">
+                                    <label for="name">Название компании</label>
+                                    <input class="form-control" type="text" name="company_name" id="company_name" value="" placeholder="Введите название компании">
+                                    {% if errors.company_name %}
+                                        <span class="help-block">Такая компания уже существует</span>
+                                    {% endif %}
+                                </div>
+                            {{ csrf.field | raw }}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <input type="submit" form="companyname" value="Сохранить" class="btn btn-primary">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="x_panel">
+
+            <div class="x_title">
+                <H2>Зарегистрированные компании</H2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th>#id</th>
+                            <th>Название компании</th>
+                            <th>Дата регистрации</th>
+                            <th>Количество сотрудников</th>
+                            <th>HR-менеджер</th>
+                            <th>Правка</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for company in companies %}
+                        <tr>
+                            <td># {{ company.id }}</td>
+                            <td>{{ company.name }}</td>
+                            <td>test</td>
+                            <td>20</td>
+                            <td>Зябрина</td>
+                            <td>
+                                <a href="?profile={{ company.id }}" class="btn btn-primary btn-xs"><i class="fa fa-user"></i> Профиль </a>
+                                <a href="?correct={{ company.id }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Править </a>
+                                <a href="?delete={{ company.id }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Удалить </a>
+                            </td>
+                        </tr>
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

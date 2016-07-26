@@ -85,6 +85,10 @@ $container['AuthController'] = function ($container) {
     return new \App\Controllers\Auth\AuthController($container);
 	};
 
+$container['CompaniesController'] = function ($container) {
+    return new App\Controllers\Companies\CompaniesController($container);
+};
+
 $container['UsersController'] = function ($container) {
     return new App\Controllers\Users\UsersController($container);
 };
