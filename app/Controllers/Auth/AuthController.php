@@ -22,7 +22,7 @@ class AuthController extends Controller{
 	public function postSignIn($request, $response)
 	{
 		$validation = $this->validator->validate($request, [
-
+			
 			'email' => v::noWhitespace()->notEmpty(),
 			'password' => v::noWhitespace()->notEmpty(),
 
@@ -58,7 +58,7 @@ class AuthController extends Controller{
 
 		$validation = $this->validator->validate($request, [
 
-			'name' => v::notEmpty()->alpha(),
+			'name' => v::notEmpty(),
 			'email' => v::noWhitespace()->notEmpty()->EmailAvailible(),
 			'password' => v::noWhitespace()->notEmpty(),
 			'role' => v::noWhitespace()->notEmpty(),
@@ -77,7 +77,7 @@ class AuthController extends Controller{
 			'role' => $request->getParam('role'),
 		]);
 		$this->container->flash->addMessage('usercreated', 'Пользователь успешно создан !');
-		return $response->withRedirect($this->router->pathFor('auth.signup'));
+		return $response->withRedirect($this->router->pathFor('users.users'));
 		
 	}
 	

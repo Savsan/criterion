@@ -14,13 +14,13 @@ $app->post('/', 'AuthController:postSignIn');
  */
 
 // Access only for Admin
-$app->group('', function(){
+/*$app->group('', function(){
 
     //USERS REGISTRATION
     $this->get('/auth/signup', 'AuthController:getSignUp')->setName('auth.signup');
     $this->post('/auth/signup', 'AuthController:postSignUp');
     // USERS routers
-    $this->get('/users', 'UsersController:getUsers')->setName('users.users');
+    $this->get('/users', 'UsersController:Users')->setName('users.users');
     // SETTINGS routers
     $this->get('/settings', 'SettingsController:getSettings')->setName('settings.mainsettings');
 
@@ -48,12 +48,12 @@ $app->group('', function(){
     // EMPLOYEES routers
     $this->get('/employees', 'EmployeesController:getEmployees')->setName('employees.employees');
 
-})->add(new AuthHrManagerMiddleware($container));
+})->add(new AuthHrManagerMiddleware($container));*/
 
 /**
  * Temporary FREE access
  */
-/*$app->get('/auth/signout', 'AuthController:getSignOut')->setName('auth.signout');
+$app->get('/auth/signout', 'AuthController:getSignOut')->setName('auth.signout');
 
 // USERS routers
 $app->get('/users', 'UsersController:getUsers')->setName('users.users');
@@ -74,6 +74,6 @@ $app->get('/candidates', 'CandidatesController:getCandidates')->setName('candida
 $app->get('/departments', 'DepartmentsController:getDepartments')->setName('departments.departments');
 
 // EMPLOYEES routers
-$app->get('/employees', 'EmployeesController:getEmployees')->setName('employees.employees');*/
+$app->get('/employees', 'EmployeesController:getEmployees')->setName('employees.employees');
 
 ?>

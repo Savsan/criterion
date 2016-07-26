@@ -18,27 +18,28 @@ class Auth
 
     public function checkIsAdmin()
     {
-        if($_SESSION['role'] === 'admin'){
+        if($_SESSION['role'] === User::ADMIN){
             return $_SESSION['role'];
         }
     }
 
     public function checkIsHrManager()
     {
-        if($_SESSION['role'] === 'hrmanager'){
+        if($_SESSION['role'] === User::HR_MANAGER){
             return $_SESSION['role'];
         }
     }
 
     public function checkIsSimpleUser()
     {
-        if($_SESSION['role'] === 'simpleuser'){
+        if($_SESSION['role'] === User::SIMPLE_USER){
             return $_SESSION['role'];
         }
     }
 
     public function attempt($email, $password)
     {
+        
         $user = User::where('email', $email)->first();
 
         if(!$user){
@@ -48,18 +49,6 @@ class Auth
         if(password_verify($password, $user->password)) {
             $_SESSION['user'] = $user->id;
             $_SESSION['role'] = $user->role;
-           /* $role = $user->role;
-            switch ($role) {
-                case "admin":
-                    $_SESSION['role'] = $user->role;
-                    break;
-                case "hrmanager":
-                    $_SESSION['role'] = $user->role;
-                    break;
-                case "simpleuser":
-                    $_SESSION['role'] = $user->role;
-                    break;
-            }*/
             return true;
         }
     }

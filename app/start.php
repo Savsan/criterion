@@ -57,6 +57,11 @@ $container['view'] = function ($container) {
         'hrmanager' => $container->auth->checkIsHrManager(),
 
     ]);
+    $view->getEnvironment()->addGlobal('current', [
+
+        'year' => date("Y"),
+
+    ]);
     // Add a flash messages
     $view->getEnvironment()->addGlobal('flash', $container->flash);
 
