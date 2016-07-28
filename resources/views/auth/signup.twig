@@ -58,12 +58,27 @@
 						<div class="form-group{{ errors.role ? ' has-error' : '' }}">
 							<label for="role">Роль пользователя</label>
 							<select type="role" name="role" class="form-control">
-								<option value="">Сделайте выбор</option>
+								<option value="">Выберите роль пользователя</option>
 								<option value="Админ">Администратор</option>
 								<option value="HR-менеджер">HR-менеджер</option>
 								<option value="Заказчик">Заказчик</option>
 							</select>
 							{% if errors.role %}
+								<span class="help-block">Сделайте выбор</span>
+							{% endif %}
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group{{ errors.users_company ? ' has-error' : '' }}">
+							<label for="users_company">Компания</label>
+							<select type="users_company" name="users_company" class="form-control">
+								<option value="">Выберите компанию</option>
+								{% for company in companies %}
+								<option value="{{ company.idcompany }}">{{ company.company_name }}</option>
+								{% endfor %}
+							</select>
+							{% if errors.users_company %}
 								<span class="help-block">Сделайте выбор</span>
 							{% endif %}
 						</div>
