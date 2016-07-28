@@ -4,6 +4,7 @@ namespace App\Controllers\Auth;
 
 use App\Controllers\Controller;
 use App\Models\User;
+use App\Models\PersonalInformation;
 use Respect\Validation\Validator as v;
 
 class AuthController extends Controller{
@@ -58,7 +59,9 @@ class AuthController extends Controller{
 
 		$validation = $this->validator->validate($request, [
 
-			'name' => v::notEmpty(),
+			'first_name' => v::notEmpty(),
+			'last_name' => v::notEmpty(),
+			'middle_name' => v::notEmpty(),
 			'email' => v::noWhitespace()->notEmpty()->EmailAvailible(),
 			'password' => v::noWhitespace()->notEmpty(),
 			'role' => v::noWhitespace()->notEmpty(),
@@ -71,7 +74,9 @@ class AuthController extends Controller{
 		}
 
 		$user = User::create([
-			'name' => $request->getParam('name'),
+			'first_name' => $request->getParam('first_name'),
+			'last_name' => $request->getParam('last_name'),
+			'middle_name' => $request->getParam('middle_name'),
 			'email' => $request->getParam('email'),
 			'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT),
 			'role' => $request->getParam('role'),

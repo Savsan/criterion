@@ -42,16 +42,16 @@
                     <tbody>
                         {% for user in users %}
                         <tr>
-                            <td># {{ user.id }}</td>
-                            <td>{{ user.name }}</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td># {{ user.idusers }}</td>
+                            <td>{{ user.middle_name }}</td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{ user.last_name }}</td>
                             <td>СпецТрансЛизинг</td>
                             <td>{{ user.role }}</td>
                             <td>
-                                <a href="?profile={{ user.id }}" class="btn btn-primary btn-xs"><i class="fa fa-user"></i> Профиль </a>
-                                <a href="?correct={{ user.id }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Править </a>
-                                <a href="?delete={{ user.id }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Удалить </a>
+                                <a href="?profile={{ user.idusers }}" class="btn btn-primary btn-xs"><i class="fa fa-user"></i> Профиль </a>
+                                <a href="?correct={{ user.idusers }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Править </a>
+                                <a href="?delete={{ user.idusers }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Удалить </a>
                             </td>
                         </tr>
                        {% endfor %}

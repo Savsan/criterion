@@ -47,10 +47,11 @@ class Auth
         }
         // Create user's session
         if(password_verify($password, $user->password)) {
-            $_SESSION['user'] = $user->id;
+            $_SESSION['user'] = $user->idusers;
             $_SESSION['role'] = $user->role;
             return true;
         }
+
     }
 
     public function logOut()

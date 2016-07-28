@@ -3,13 +3,40 @@
 {% block content %}
 
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">Sign UP</div>
-				<div class="panel-body">
 
-					<form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
+			<div class="x_panel">
+				<div class="x_title"><h3>Создание нового пользователя системы</h3></div>
+				<div class="x_content">
 
+					<form id="newuser" action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
+					<div class="col-md-4">
+						<div class="form-group{{ errors.first_name ? ' has-error' : '' }}">
+							<label for="first_name">Имя</label>
+							<input type="first_name" name="first_name" id="first_name" placeholder="Введите имя" value="{{ old.first_name }}" class="form-control">
+							{% if errors.first_name %}
+								<span class="help-block">Введите имя</span>
+							{% endif %}
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group{{ errors.middle_name ? ' has-error' : '' }}">
+							<label for="middle_name">Отчество</label>
+							<input type="middle_name" name="middle_name" id="middle_name" placeholder="Введите отчество" value="{{ old.middle_name }}" class="form-control">
+							{% if errors.middle_name %}
+								<span class="help-block">Введите отчество</span>
+							{% endif %}
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group{{ errors.last_name ? ' has-error' : '' }}">
+							<label for="last_name">Фамилия</label>
+							<input type="last_name" name="last_name" id="last_name" placeholder="Введите фамилию" value="{{ old.last_name }}" class="form-control">
+							{% if errors.last_name %}
+								<span class="help-block">Введите фамилию</span>
+							{% endif %}
+						</div>
+					</div>
+					<div class="col-md-4">
 						<div class="form-group{{ errors.email ? ' has-error' : '' }}">
 							<label for="email">Email</label>
 							<input type="email" name="email" id="email" placeholder="example@domain.com" value="{{ old.email}}" class="form-control">
@@ -17,15 +44,8 @@
 								<span class="help-block">Неправильно указанный или уже зарегистрированный Email</span>
 							{% endif %}
 						</div>
-						
-						<div class="form-group{{ errors.name ? ' has-error' : '' }}">
-							<label for="name">Имя</label>
-							<input type="name" name="name" id="name" placeholder="Введите имя" value="{{ old.name }}" class="form-control">
-							{% if errors.name %}
-								<span class="help-block">Введите имя</span>
-							{% endif %}
-						</div>
-
+					</div>
+					<div class="col-md-4">
 						<div class="form-group{{ errors.password ? ' has-error' : '' }}">
 							<label for="password">Пароль</label>
 							<input type="password" name="password" id="password" placeholder="Введите пароль" class="form-control">
@@ -33,7 +53,8 @@
 								<span class="help-block">Введите пароль</span>
 							{% endif %}
 						</div>
-
+					</div>
+					<div class="col-md-4">
 						<div class="form-group{{ errors.role ? ' has-error' : '' }}">
 							<label for="role">Роль пользователя</label>
 							<select type="role" name="role" class="form-control">
@@ -46,16 +67,14 @@
 								<span class="help-block">Сделайте выбор</span>
 							{% endif %}
 						</div>
-
-						<input type="submit" value="Sign UP" class="btn btn-success">
-
+					</div>
 						{{ csrf.field | raw }}
-
 					</form>
+					<div class="ln_solid"></div>
+					<input type="submit" form="newuser" value="Создать" class="btn btn-primary">
 
 				</div>
 			</div>
-		</div>
 	</div>
 
 {% endblock %}

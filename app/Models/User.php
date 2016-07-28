@@ -11,9 +11,13 @@ class User extends Model{
 	const SIMPLE_USER = "Заказчик";
 	
 	protected $table = 'users';
+	protected $primaryKey = 'idusers';
+	public $timestamps = FALSE;
 	
 	protected $fillable = [
-		'name',
+		'first_name',
+		'last_name',
+		'middle_name',
 		'email',
 		'password',
 		'role',
