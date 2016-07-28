@@ -4,7 +4,6 @@ namespace App\Controllers\Auth;
 
 use App\Controllers\Controller;
 use App\Models\User;
-use App\Models\PersonalInformation;
 use Respect\Validation\Validator as v;
 
 class AuthController extends Controller{

@@ -21,7 +21,7 @@ $app->group('', function(){
     $this->post('/auth/signup', 'AuthController:postSignUp');
     // COMPANY REGISTRATION CONTROLLERS
     $this->get('/companies', 'CompaniesController:getCompanies')->setName('companies.companies');
-    $this->post('/companies', 'CompaniesController:addCompany');
+    $this->post('/companies', 'CompaniesController:postAddCompany');
     // USERS routers
     $this->get('/users', 'UsersController:Users')->setName('users.users');
     // SETTINGS routers
