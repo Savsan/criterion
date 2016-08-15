@@ -11,7 +11,7 @@ class CompaniesController extends Controller
     public function getCompanies($request, $response){
         
         $companies = Company::all();
-
+        
         return $this->view->render($response, 'companies/companies.twig', [
             'companies' => $companies,
         ]);
