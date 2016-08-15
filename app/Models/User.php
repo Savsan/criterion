@@ -12,6 +12,7 @@ class User extends Model{
 	
 	protected $table = 'users';
 	protected $primaryKey = 'idusers';
+	public $timestamps = FALSE;
 	
 	protected $fillable = [
 		'first_name',
@@ -30,7 +31,7 @@ class User extends Model{
 
 	public static function deleteUser($request){
 		$id = $request;
-		self::where('id', '=', $id)->delete();
+		self::where('idusers', '=', $id)->delete();
 	}
 }
 
