@@ -84,6 +84,7 @@ class AuthController extends Controller{
 			'email' => $request->getParam('email'),
 			'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT),
 			'role' => $request->getParam('role'),
+			'company_idcompany' => $request->getParam('users_company'),
 		]);
 		$this->container->flash->addMessage('usercreated', 'Пользователь успешно создан !');
 		return $response->withRedirect($this->router->pathFor('users.users'));

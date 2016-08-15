@@ -12,7 +12,6 @@ class User extends Model{
 	
 	protected $table = 'users';
 	protected $primaryKey = 'idusers';
-	public $timestamps = FALSE;
 	
 	protected $fillable = [
 		'first_name',
@@ -21,6 +20,7 @@ class User extends Model{
 		'email',
 		'password',
 		'role',
+		'company_idcompany',
 	];
 	
 	public static function getUsers(){
