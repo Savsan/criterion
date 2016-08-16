@@ -78,7 +78,7 @@
                         <tr>
                             <td># {{ company.idcompany }}</td>
                             <td>{{ company.company_name }}</td>
-                            <td>test</td>
+                            <td>{{ company.created_at |date("d/m/Y") }}</td>
                             <td>20</td>
                             <td>Зябрина</td>
                             <td>

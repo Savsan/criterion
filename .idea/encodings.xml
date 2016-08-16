@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/start.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/resources/views/auth/signup.twig" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/resources/views/templates/app.twig" charset="UTF-8" />
-    <file url="PROJECT" charset="UTF-8" />
-  </component>
-</project>
