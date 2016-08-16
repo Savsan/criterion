@@ -11,7 +11,12 @@ class CompaniesController extends Controller
     public function getCompanies($request, $response){
         
         $companies = Company::all();
-        
+
+        $i = 0;
+        foreach($companies as $company){
+            $companies[$i++]['employees'] = $company->find($company->idcompany)->users->count();
+        }
+
         return $this->view->render($response, 'companies/companies.twig', [
             'companies' => $companies,
         ]);

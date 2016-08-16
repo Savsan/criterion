@@ -79,7 +79,7 @@
                             <td># {{ company.idcompany }}</td>
                             <td>{{ company.company_name }}</td>
                             <td>{{ company.created_at |date("d/m/Y") }}</td>
-                            <td>20</td>
+                            <td>{{ company.employees }}</td>
                             <td>Зябрина</td>
                             <td>
                                 <a href="?profile={{ company.idcompany }}" class="btn btn-primary btn-xs"><i class="fa fa-user"></i> Профиль </a>
