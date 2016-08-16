@@ -23,6 +23,10 @@ class User extends Model{
 		'role',
 		'company_idcompany',
 	];
+
+	public function company(){
+		return $this->belongsTo('App\Models\Company', 'company_idcompany', 'idcompany');
+	}
 	
 	public static function getUsers(){
 		$users = self::all();

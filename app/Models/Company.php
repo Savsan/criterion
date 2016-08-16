@@ -13,5 +13,11 @@ class Company extends Model{
     protected $fillable = [
         'company_name',
     ];
-    
+
+
+    public function users()
+    {
+       return $this->hasMany('App\Models\User', 'company_idcompany', 'idcompany');
+    }
+
 }

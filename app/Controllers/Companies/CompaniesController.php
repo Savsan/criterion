@@ -4,7 +4,6 @@ namespace App\Controllers\Companies;
 
 use App\Controllers\Controller;
 use App\Models\Company;
-use App\Models\User;
 use Respect\Validation\Validator as v;
 
 class CompaniesController extends Controller
@@ -12,20 +11,9 @@ class CompaniesController extends Controller
     public function getCompanies($request, $response){
         
         $companies = Company::all();
-        $users = User::all();
-
-        /*foreach($companies as $company){
-            print_r($company->idcompany);
-        }*/
-
-
-
-
-        echo"<pre>";
-        print_r($users); die();
-
+        
         return $this->view->render($response, 'companies/companies.twig', [
-            'companies' => $company,
+            'companies' => $companies,
         ]);
 
     }
