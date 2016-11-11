@@ -48,6 +48,7 @@ $app->group('', function(){
     $this->get('/dashboard', 'DashboardController:getDashboard')->setName('dashboard.dashboard');
     // DEPARTMENTS routers
     $this->get('/departments', 'DepartmentsController:getDepartments')->setName('departments.departments');
+    $this->get('/departments/add', 'DepartmentsController:addDepartments')->setName('departments.addDepartments');
     // EMPLOYEES routers
     $this->get('/employees', 'EmployeesController:getEmployees')->setName('employees.employees');
 
