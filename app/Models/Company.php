@@ -9,6 +9,7 @@ class Company extends Model{
 
     protected $table = 'company';
     protected $primaryKey = 'idcompany';
+    public $timestamps = false;
 
     protected $fillable = [
         'company_name',
