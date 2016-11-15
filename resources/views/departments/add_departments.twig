@@ -27,8 +27,9 @@
                             <label for="head_structure">Подчинено</label>
                             <select type="head_structure" name="head_structure" class="form-control">
                                 <option value="">Выберите компанию</option>
-                                <option value="">СпецТрансЛизинг</option>
-                                <option value="">Профи-Агропарк</option>
+                                {% for company in companies %}
+                                    <option value="{{ company.idcompany }}">{{ company.company_name }}</option>
+                                {% endfor %}
                             </select>
                             {% if errors.head_structure %}
                                 <span class="help-block">Сделайте выбор</span>
