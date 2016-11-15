@@ -3,6 +3,7 @@
 namespace App\Controllers\Departments;
 
 use App\Controllers\Controller;
+use App\Models\Company;
 
 class DepartmentsController extends Controller
 {
@@ -11,6 +12,10 @@ class DepartmentsController extends Controller
     }    
     
     public function addDepartments($request, $response){
-        return $this->view->render($response, 'departments/add_departments.twig');
+        $companies = Company::all();
+        return $this->view->render($response, 'departments/add_departments.twig',[
+            'companies' => $companies
+        ]);
     }
+
 }
