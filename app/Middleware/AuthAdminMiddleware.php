@@ -8,7 +8,7 @@ class AuthAdminMiddleware extends Middleware
     public function __invoke($request, $response, $next){
         // Middleware
         if(!$this->container->auth->checkIsAdmin()){
-            $this->container->flash->addMessage('notadminerror', 'У вас нет прав Администратора');
+            $this->container->flash->addMessage('danger', 'У вас нет прав Администратора');
             return $response->withRedirect($this->container->router->pathFor('dashboard.dashboard'));
         }
 

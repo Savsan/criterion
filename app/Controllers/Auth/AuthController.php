@@ -38,7 +38,7 @@ class AuthController extends Controller{
 		$auth = $this->auth->attempt($request->getParam('email'), $request->getParam('password'));
 
 		if(!$auth){
-			$this->container->flash->addMessage('loginerror', 'Неправильно указан логин или пароль');
+			$this->container->flash->addMessage('danger', 'Неправильно указан логин или пароль');
 			return $response->withRedirect($this->router->pathFor('auth.signin'));
 		}
 
@@ -86,7 +86,7 @@ class AuthController extends Controller{
 			'role' => $request->getParam('role'),
 			'company_idcompany' => $request->getParam('users_company'),
 		]);
-		$this->container->flash->addMessage('usercreated', 'Пользователь успешно создан !');
+		$this->container->flash->addMessage('success', 'Пользователь успешно создан !');
 		return $response->withRedirect($this->router->pathFor('users.users'));
 		
 	}

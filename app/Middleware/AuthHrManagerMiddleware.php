@@ -9,7 +9,7 @@ class AuthHrManagerMiddleware extends Middleware
     {
         // Middleware
         if(!$this->container->auth->checkIsHrManager() and !$this->container->auth->checkIsAdmin()){
-            $this->container->flash->addMessage('nothrmanagererror', 'У вас нет прав HR-менеджера');
+            $this->container->flash->addMessage('danger', 'У вас нет прав HR-менеджера');
             return $response->withRedirect($this->container->router->pathFor('orders.orders'));
         }
 

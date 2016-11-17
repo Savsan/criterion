@@ -32,14 +32,14 @@ class CompaniesController extends Controller
         ]);
 
         if($validation->failed()){
-            $this->container->flash->addMessage('companynotcreated', 'Компания не создана. Введите название.');
+            $this->container->flash->addMessage('danger', 'Компания не создана. Введите название.');
             return $response->withRedirect($this->router->pathFor('companies.companies'));
         }
 
         $user = Company::create([
             'company_name' => $request->getParam('company_name'),
         ]);
-        $this->container->flash->addMessage('companycreated', 'Компания успешно добавлена.');
+        $this->container->flash->addMessage('success', 'Компания успешно добавлена.');
         return $response->withRedirect($this->router->pathFor('companies.companies'));
 
     }

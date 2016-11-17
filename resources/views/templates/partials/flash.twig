@@ -1,86 +1,23 @@
-{% if flash.getMessage('usercreated') %}
+{% if flash.getMessage('success') %}
 <div class="x_content">
     <div class="row">
         <div class="alert alert-success alert-dismissible fade in" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
-        {{ flash.getMessage('usercreated') | first }}
+        {{ flash.getMessage('success') | first }}
         </div>
     </div>
 </div>
 {% endif %}
 
-{% if flash.getMessage('accesserror') %}
+{% if flash.getMessage('danger') %}
     <div class="row">
         <div class="alert alert-danger alert-dismissible fade in" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
-            {{ flash.getMessage('accesserror') | first }}
-        </div>
-    </div>
-{% endif %}
-
-{% if flash.getMessage('loginerror') %}
-    <div class="row">
-        <div class="alert alert-danger alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-            {{ flash.getMessage('loginerror') | first }}
-        </div>
-    </div>
-{% endif %}
-
-{% if flash.getMessage('notadminerror') %}
-<div class="x_content">
-    <div class="row">
-        <div class="alert alert-danger alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-            {{ flash.getMessage('notadminerror') | first }}
-        </div>
-    </div>
-</div>
-{% endif %}
-
-{% if flash.getMessage('nothrmanagererror') %}
-<div class="x_content">
-    <div class="row">
-        <div class="alert alert-danger alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-            {{ flash.getMessage('nothrmanagererror') | first }}
-        </div>
-    </div>
-</div>
-{% endif %}
-
-{% if flash.getMessage('companynotcreated') %}
-    <div class="x_content">
-        <div class="row">
-            <div class="alert alert-danger alert-dismissible fade in" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                {{ flash.getMessage('companynotcreated') | first }}
-            </div>
-        </div>
-    </div>
-{% endif %}
-
-{% if flash.getMessage('companycreated') %}
-    <div class="x_content">
-        <div class="row">
-            <div class="alert alert-success alert-dismissible fade in" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                {{ flash.getMessage('companycreated') | first }}
-            </div>
+            {{ flash.getMessage('danger') | first }}
         </div>
     </div>
 {% endif %}
