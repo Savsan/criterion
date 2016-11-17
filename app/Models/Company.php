@@ -16,9 +16,13 @@ class Company extends Model{
     ];
 
 
-    public function users()
-    {
+    public function users(){
        return $this->hasMany('App\Models\User', 'company_idcompany', 'idcompany');
+    }
+
+    public static function deleteCompany($args){
+        $id = $args['id'];
+        self::where('idcompany', '=', $id)->delete();
     }
 
 }
