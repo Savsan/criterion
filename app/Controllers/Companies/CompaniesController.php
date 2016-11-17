@@ -23,8 +23,7 @@ class CompaniesController extends Controller
 
     }
 
-    public function postAddCompany($request, $response)
-    {
+    public function postAddCompany($request, $response){
 
         $validation = $this->validator->validate($request, [
             
@@ -43,5 +42,10 @@ class CompaniesController extends Controller
         $this->container->flash->addMessage('companycreated', 'Компания успешно добавлена.');
         return $response->withRedirect($this->router->pathFor('companies.companies'));
 
+    }
+    
+    public function deleteCompany($request, $response, $args){
+        Company::deleteCompany($args);
+        return $response->withRedirect($this->router->pathFor('companies.companies'));
     }
 }
