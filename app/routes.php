@@ -22,6 +22,7 @@ $app->group('', function(){
     // COMPANY REGISTRATION CONTROLLERS
     $this->get('/companies', 'CompaniesController:getCompanies')->setName('companies.companies');
     $this->post('/companies', 'CompaniesController:postAddCompany');
+    $this->get('/companies/delete/{id}', 'CompaniesController:deleteCompany');
     // USERS routers
     $this->get('/users', 'UsersController:Users')->setName('users.users');
     // SETTINGS routers
