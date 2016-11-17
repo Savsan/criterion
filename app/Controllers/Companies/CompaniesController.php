@@ -46,6 +46,7 @@ class CompaniesController extends Controller
     
     public function deleteCompany($request, $response, $args){
         Company::deleteCompany($args);
+        $this->container->flash->addMessage('success', 'Компания была успешно удалена.');
         return $response->withRedirect($this->router->pathFor('companies.companies'));
     }
 }
