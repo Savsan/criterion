@@ -14,7 +14,7 @@
                 <form id="new_department" action="{{ path_for('departments.postAddDepartments') }}" method="post" autocomplete="off">
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group{{ errors.first_name ? ' has-error' : '' }}">
+                        <div class="form-group{{ errors.dep_name ? ' has-error' : '' }}">
                             <label for="dep_name">Название подразделения</label>
                             <input type="dep_name" name="dep_name" id="dep_name" placeholder="Введите название подразделения" value="{{ old.dep_name }}" class="form-control">
                             {% if errors.dep_name %}
@@ -48,7 +48,7 @@
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group{{ errors.date_close ? ' has-error' : '' }}">
                             <label for="date_close">Дата закрытия</label>
-                            <input type="date_close" name="date_close" id="date_close" placeholder="ДД.MM.ГГГГ" value="{{ old.first_name }}" class="form-control">
+                            <input type="date_close" name="date_close" id="date_close" placeholder="ДД.MM.ГГГГ" value="{{ old.date_close }}" class="form-control">
                             {% if errors.date_close %}
                                 <span class="help-block">Введите дату</span>
                             {% endif %}
@@ -57,9 +57,7 @@
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <label for="dep_description">Краткое описание</label>
-                        <textarea name="dep_description" id="dep_description" rows="10" cols="80">
-                        This is my textarea to be replaced with CKEditor.
-                        </textarea>
+                        <textarea name="dep_description" id="dep_description" rows="10" cols="80">{{ old.dep_description }}</textarea>
                         <script>
                             // Replace the <textarea id="editor1"> with a CKEditor
                             // instance, using default configuration.
