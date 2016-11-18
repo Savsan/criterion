@@ -12,6 +12,7 @@
 {% endif %}
 
 {% if flash.getMessage('danger') %}
+<div class="x_content">
     <div class="row">
         <div class="alert alert-danger alert-dismissible fade in" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -20,5 +21,6 @@
             {{ flash.getMessage('danger') | first }}
         </div>
     </div>
+</div>
 {% endif %}
 
